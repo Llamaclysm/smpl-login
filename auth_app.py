@@ -1,5 +1,9 @@
 from tkinter import *
 
+def write():
+    print("saved!")
+
+
 def register():
     screen_register = Toplevel(screen)
     screen_register.title("Register")
@@ -9,6 +13,14 @@ def register():
     username = StringVar()
     password = StringVar()
 
+    Label(screen_register, text="").pack()
+    Label(screen_register, text="Fill the registration form:").pack()
+    Label(screen_register, text="").pack()
+    Label(screen_register, text="Username").pack()
+    Entry(screen_register, textvariable = username)
+    Label(screen_register, text="Password").pack()
+    Entry(screen_register, textvariable = password)
+    Button(screen_register, text="SAVE", command=write).pack()
 
 def login():
     print("login!")
@@ -21,9 +33,9 @@ def default_screen():
     screen.title("Auth App 0.1")
     Label(text = "Auth App 0.1", font = ("Calibri", 14)).pack()
     Label(text = "").pack()
-    Button(text = "Login", command = login()).pack()
+    Button(text = "Login", command = login).pack()
     Label(text="").pack()
-    Button(text = "Register", command = register()).pack()
+    Button(text = "Register", command = register).pack()
 
     screen.mainloop()
 
