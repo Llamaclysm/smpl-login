@@ -1,6 +1,16 @@
 from tkinter import *
 
 
+def login_user():
+    print("login")
+
+    username_usr_entry.delete(0, END)
+    username_pwd_entry.delete(0, END)
+
+    Label(screen_login, text="").pack()
+    Label(screen_login, text="DONE", fg="green").pack()
+
+
 def write_user():
     username_usr = username.get()
     username_pwd = password.get()
@@ -43,8 +53,28 @@ def register():
 
 
 def login():
-    print("login!")
+    global screen_login
+    screen_login = Toplevel(screen)
+    screen_login.title("Login")
+    screen_login.geometry("350x250")
 
+    global username
+    username = StringVar()
+    global password
+    password = StringVar()
+
+    Label(screen_login, text="Fill the login form:").pack()
+    Label(screen_login, text="").pack()
+    Label(screen_login, text="Username").pack()
+    global username_usr_entry
+    username_usr_entry = Entry(screen_login, textvariable=username)
+    username_usr_entry.pack()
+    Label(screen_login, text="Password").pack()
+    global username_pwd_entry
+    username_pwd_entry = Entry(screen_login, textvariable=password)
+    username_pwd_entry.pack()
+    Label(screen_login, text="").pack()
+    Button(screen_login, text="LOGIN", command=login_user).pack()
 
 def default_screen():
     global screen
