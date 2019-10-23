@@ -1,26 +1,42 @@
 from tkinter import *
 
-def write():
-    print("saved!")
+def write_user():
+    username_usr = username.get()
+    username_pwd = password.get()
 
+    file = open(username_usr+".txt", "w")
+    file.write(username_usr)
+    file.write(username_pwd)
+    file.close()
+
+    username_usr_entry.delete(0, END)
+    username_pwd_entry.delete(0, END)
+
+    Label(text = "Data saved!")
 
 def register():
     screen_register = Toplevel(screen)
     screen_register.title("Register")
     screen_register.geometry("350x200")
-    print("registered!")
 
+    global username
+    global password
     username = StringVar()
     password = StringVar()
 
-    Label(screen_register, text="").pack()
+    global username_usr_entry
+    global username_pwd_entry
     Label(screen_register, text="Fill the registration form:").pack()
     Label(screen_register, text="").pack()
     Label(screen_register, text="Username").pack()
-    Entry(screen_register, textvariable = username)
+    username_usr_entry = Entry(screen_register, textvariable = username)
+    username_usr_entry.pack()
     Label(screen_register, text="Password").pack()
-    Entry(screen_register, textvariable = password)
-    Button(screen_register, text="SAVE", command=write).pack()
+    username_pwd_entry = Entry(screen_register, textvariable = password)
+    username_pwd_entry.pack()
+    Label(screen_register, text="").pack()
+    Button(screen_register, text="SAVE", command=write_user).pack()
+
 
 def login():
     print("login!")
