@@ -13,7 +13,7 @@ def write_user():
     username_usr_entry.delete(0, END)
     username_pwd_entry.delete(0, END)
 
-    Label(screen_register, text="Data saved!", fg="green")
+    Label(screen_register, text="Data saved", fg="green")
 
 
 def register():
