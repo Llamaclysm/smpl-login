@@ -4,6 +4,14 @@ from tkinter import *
 def login_user():
     print("login")
 
+    username_usr = username.get()
+    username_pwd = password.get()
+
+    file = open(username_usr + ".txt")
+    file.read(username_usr + "\n")
+    file.read(username_pwd)
+    file.close()
+
     username_usr_entry.delete(0, END)
     username_pwd_entry.delete(0, END)
 
